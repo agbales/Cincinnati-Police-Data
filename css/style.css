@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+section {
+  padding: 10px 0;
+}
+
+#cincy-header {
+  padding: 10px;
+  color: #181818;
+  border: 2px solid #E08283;
+  text-align: center;
+}
+#cincy-header h1 {
+  color: #E08283;
+}
+#cincy-header hr {
+  width: 50px;
+  color: #E08283;
+}
+
+#complaint-records tr:hover {
+  background-color: #E08283;
+  color: #fff;
+}
+#complaint-records tr:first-child:hover {
+  background-color: #fff;
+}
+
+.entry {
+  margin: 10px;
+  padding: 10px;
+}
+
+#global-charts div {
+  display: inline-block;
+  margin: 0px 10px;
+  margin-top: 25px;
+}
+#global-charts div p {
+  padding-top: 10px;
+}
+
+.num-box {
+  color: #E08283;
+  margin: 25px;
+}
+
+#overview {
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+#overview p {
+  margin-top: 10px;
+  padding: 20px;
+}
+
+
+/* Chart */
+.Black {
+  background-color: #00a4d9;
+  fill: #00a4d9;
+}
+
+.Unknown {
+  background-color: #ffaa01;
+  fill: #ffaa01;
+}
+
+.White {
+  background-color: #fe6b01;
+  fill: #fe6b01;
+}
+#race-chart {
+  padding: 10px;
+}
+
+/* SVG District Map */
+#D1, #D2, #D3, #D4, #D5 {
+  stroke: #fff;
+  stroke-width: 4;
+}
+#D1:hover, #D2:hover, #D3:hover, #D4:hover, #D5:hover {
+  fill: #D35400;
+  opacity: 0.3;
+}
+
+#D1 {
+  fill: #F5D76E;
+}
+
+#D2 {
+  fill: #52B3D9;
+}
+
+#D3 {
+  fill: #E08283;
+}
+
+#D4 {
+  fill: #BE90D4;
+}
+
+#D5 {
+  fill: #68C3A3;
+}
