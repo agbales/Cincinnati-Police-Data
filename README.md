@@ -1,2 +1,2 @@
 # cincinnati-data
-Visualizing open data from the city of Cincinnati
+This project visualizes data from the [Cincinnati Open Data Portal](https://data.cincinnati-oh.gov/) to make it as accessible and easy to understand as possible.
