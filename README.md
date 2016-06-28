@@ -1,2 +1,3 @@
-# Cincinnati Open Data
-This project visualizes data from the [Cincinnati Open Data Portal](https://data.cincinnati-oh.gov/) to make it as accessible and easy to understand as possible.
+# Cincinnati Police Open Data
+This project seeks to combine police data from the [Cincinnati Open Data Portal](https://data.cincinnati-oh.gov/) to provide insights into the calls, responses, arrests, and complaints regarding the Cincinnati police department.
+
