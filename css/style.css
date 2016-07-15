@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
 * {
   box-sizing: border-box;
@@ -16,11 +17,12 @@ section {
 #cincy-header {
   padding: 10px;
   color: #181818;
-  border: 2px solid #E08283;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
 }
 #cincy-header h1 {
   color: #E08283;
+  font-size: 3em;
 }
 #cincy-header hr {
   width: 50px;
@@ -66,6 +68,10 @@ section {
   padding: 20px;
 }
 
+#stat-totals p {
+  margin: 0 0 5px;
+}
+
 
 /* Chart */
 .Black {
@@ -92,24 +98,24 @@ section {
   stroke-width: 4;
 }
 #D1:hover, #D2:hover, #D3:hover, #D4:hover, #D5:hover {
-  fill: #D35400;
-  opacity: 0.3;
+  fill: #F6CD61;
+  opacity: 0.6;
 }
 
 #D1 {
-  fill: #F5D76E;
-}
-
-#D2 {
-  fill: #52B3D9;
-}
-
-#D3 {
   fill: #E08283;
 }
 
+#D2 {
+  fill: #3DA4AB;
+}
+
+#D3 {
+  fill: #F0A703;
+}
+
 #D4 {
-  fill: #BE90D4;
+  fill: #977BAB;
 }
 
 #D5 {

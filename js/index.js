@@ -18,8 +18,8 @@ function addTableRow(record) {
       .append('<td>' + record.officer_sex + '</td>')
       .append('<td>' + record.officer_race + '</td>')
       .append('</tr>')
-     
-      $('#complaint-records').append(tr);    
+
+      $('#complaint-records').append(tr);
 }
 
 function initializeDistrict(record) {
@@ -41,9 +41,9 @@ function tallyProperties(record) {
 
 function showGlobalTotals() {
   $('#total-complaints').html('Total: ' + aggregateComplaintRecords.totalRecords);
-  $('#black-complaints').html('Black: ' + aggregateComplaintRecords.complainant_race.Black); 
-  $('#white-complaints').html('White: ' + aggregateComplaintRecords.complainant_race.White); 
-  $('#hispanic-complaints').html('Hispanic: ' + aggregateComplaintRecords.complainant_race.Hispanic); 
+  $('#black-complaints').html('Black: ' + aggregateComplaintRecords.complainant_race.Black);
+  $('#white-complaints').html('White: ' + aggregateComplaintRecords.complainant_race.White);
+  $('#hispanic-complaints').html('Hispanic: ' + aggregateComplaintRecords.complainant_race.Hispanic);
   $('#other-complaints').html('Other: ' + aggregateComplaintRecords.complainant_race.Other );
   $('#na-complaints').html('Unknown: ' + aggregateComplaintRecords.complainant_race.Unknown );
 }
@@ -61,7 +61,7 @@ var colorPicker = function(num) {
       color: "#6AAFE6",
       highlight: "#E3E36A"
   }
-  
+
   if (num % 2) {
     return comboTwo
   } else if (num % 3) {
@@ -71,7 +71,7 @@ var colorPicker = function(num) {
   }
 }
 
-function generateChart(property, type) {    
+function generateChart(property, type) {
   var propertiesToChart = [];
   propertiesToChart.push(property);
   for (var propertyIndex in propertiesToChart) {
@@ -82,11 +82,11 @@ function generateChart(property, type) {
 
 function chartBuilder(chartData) {
   var data = [];
-  
-  for (var propertyIndex in (Object.keys(chartData))) {      
+
+  for (var propertyIndex in (Object.keys(chartData))) {
     var chartProperty = Object.keys(chartData)[propertyIndex];
     var chartValue = chartData[chartProperty];
-         
+
     data.push(
       {
         value: chartValue,
@@ -99,7 +99,7 @@ function chartBuilder(chartData) {
   return data;
 }
 
-function showChart(data, p, t) { 
+function showChart(data, p, t) {
   if (t == 'doughnut') {
     // Create canvas for each new chart
     $('#global-charts').append('<div><canvas id="' + p + '" width="100px" height="100px"></canvas>'
@@ -112,10 +112,10 @@ function showChart(data, p, t) {
       percentageInnerCutout : 50,
       legendTemplate : "",
       customTooltips: true,
-      tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>" 
+      tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>"
     });
   } else if (t == 'bar' || 'horizontalBar') {
-    
+
     // Still needs support for horizontalbar
     var labels = [];
     var values = [];
@@ -125,7 +125,7 @@ function showChart(data, p, t) {
       values.push(data[i].value);
       colors.push(data[i].color)
     }
-    
+
     var barData = {
       labels: labels,
       datasets: [{
@@ -133,7 +133,7 @@ function showChart(data, p, t) {
         data: values
       }]
     }
-    
+
     $('#global-charts').append('<hr><canvas id="' + p + '"></canvas>' +
                                '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + p).get(0).getContext('2d');
@@ -143,7 +143,7 @@ function showChart(data, p, t) {
   }
 }
 
-$.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (json) {  
+$.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (json) {
   // Global object updates
   aggregateComplaintRecords = { districts: {}, neighborhoods: {}, totalRecords: json.length };
   allComplaintRecords = json;
@@ -156,13 +156,13 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
     initializeNeighborhood(record);
     tallyProperties(record);
   }
-  
+
   // Overview
   showGlobalTotals();
   generateChart('complainant_sex', 'doughnut');
   generateChart('complainant_race', 'doughnut');
   generateChart('officer_race', 'doughnut');
-  
+
   // Bar charts
   generateChart('district', 'bar');
   generateChart('neighborhood', 'horizontalBar');
@@ -185,4 +185,3 @@ $('.svg-district').click(function(){
     }
   }
 });
-
