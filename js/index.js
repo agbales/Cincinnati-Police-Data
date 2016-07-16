@@ -134,7 +134,7 @@ function showChart(data, p, t) {
       }]
     }
 
-    $('#global-charts').append('<hr><canvas id="' + p + '" width="500px" height="500px"></canvas>' +
+    $('#global-charts').append('<hr><canvas id="' + p + '" width="700px" height="400px"></canvas>' +
                                '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + p).get(0).getContext('2d');
     new Chart(ctx).Bar(barData, {
