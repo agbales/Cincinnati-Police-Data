@@ -102,8 +102,8 @@ function chartBuilder(chartData) {
 function showChart(data, p, t) {
   if (t == 'doughnut') {
     // Create canvas for each new chart
-    $('#global-charts').append('<div><canvas id="' + p + '" width="100px" height="100px"></canvas>'
-                              + '<br><p>' + p + '</p></div>');
+    $('#global-charts').append('<div><canvas id="' + p + '" width="150px" height="150px"></canvas>'
+                              + '<br><p>' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + p).get(0).getContext('2d');
     new Chart(ctx).Doughnut(data, {
       animateScale: false,
@@ -129,12 +129,12 @@ function showChart(data, p, t) {
     var barData = {
       labels: labels,
       datasets: [{
-        fillColor: '#AF4034',
+        fillColor: '#E08283',
         data: values
       }]
     }
 
-    $('#global-charts').append('<hr><canvas id="' + p + '"></canvas>' +
+    $('#global-charts').append('<hr><canvas id="' + p + '" width="500px" height="500px"></canvas>' +
                                '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + p).get(0).getContext('2d');
     new Chart(ctx).Bar(barData, {
