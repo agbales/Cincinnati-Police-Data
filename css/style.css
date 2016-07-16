@@ -411,9 +411,8 @@ section {
   -webkit-transition: all .15s ease-in-out;
 }
 
-/*-------------------------------*/
 /*            Overlay            */
-/*-------------------------------*/
+
 
 .overlay {
     position: fixed;
