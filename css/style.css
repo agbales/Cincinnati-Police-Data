@@ -189,9 +189,13 @@ section {
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 
-.nav-header, .nav-header a {
+.nav-header {
   color: #fff;
   padding-left: 28px;
+}
+
+.nav-header a {
+  color: #fff;
   text-decoration: none;
 }
 
