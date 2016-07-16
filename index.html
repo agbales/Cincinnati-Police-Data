@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Cincinnati Data: Citizen Complaints </title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+       <div class="overlay"></div>
+         <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <div class="nav-header">
+              <h3>
+                 Cincinnati<br> 
+                 Open<br>  
+                 Data<br>  
+              </h3>
+            </div>
+            <ul class="nav sidebar-nav">
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Overivew of Statistics</a>
+                </li>
+                <li>
+                    <a href="#">District 1</a>
+                </li>
+                <li>
+                    <a href="#">District 2</a>
+                </li>
+                <li>
+                    <a href="#">District 3</a>
+                </li>
+                <li>
+                    <a href="#">District 4</a>
+                </li>
+                <li>
+                    <a href="#">District 5</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Neighborhoods<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header"></li>
+                    <li><a href="#">Example Neighborhood</a></li>
+                    <!-- JS populated list -->
+                  </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+          </button>
+          <div class="container">
+          <div class="container-fluid">
+              <section id="stat-totals">
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">
+                      <div class="row">
+                        <div id="cincy-header" class="col-sm-4 col-sm-offset-1">
+                          <h1>CINCINNATI</h1>
+                          <h4>Citizen Complaints</h4>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                          <p id="total-complaints"></p>
+                          <p id="black-complaints"></p>
+                          <p id="white-complaints"></p>
+                          <p id="hispanic-complaints"></p>
+                          <p id="other-complaints"></p>
+                          <p id="na-complaints"></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section id="cincinnati-map">
+                  <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                      <svg viewBox="0 0 1007.95 641.968" id="cicy-district-svg">
+                        <g id="cincy-svg-path-container">
+                          <g id="D5" class="svg-district">
+                            <path style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                  d="M475.389,361.058l-1.807-18.693c0,0-9.86-33.643-11.86-36.974c0,0-0.515-28.002,19.076-42.333l-28.204-25.923
+                                  c0,0-13.913-13.514-26.893,4.872c0,0-5.312,7.382-19.979,4.051c0,0-16-14.002-33-41v-20.665h10.333v-5.333c0,0,11.333-1,11.333-17
+                                  c0,0,12.667-9,8-13.333c0,0-6.671-4.897-9.333,10.667l-15.667-0.333l3.333-53h-5l-0.333-6.667h7l1-16h18.667l0.333-6.667h6
+                                  c0,0,6.333,16.333,34,11.333l0.667-19.333h24.333h10.667l0.333-10.667h15.667V46.393h8.333V42.06h13.333v15.667h6.667l-1.667,24
+                                  l-11,1.333l-1.333,9.667l-3-9.333l-5.667-0.333c0,0-5,19.667,22.667,15.333c0,0,27.333,1.667,30-2.333l6.667,0.333v4.667l31,2.333
+                                  l25.666,38.333c0,0-11.334,4-9,14.333c0,0-4,5.333-13,6.333c0,0-0.332,11-13.666,10c0,0-8.001,1.333-1.334,17.667
+                                  c0,0,2.668,8.666-1.666,11.5c0,0,5,17.833-3.667,15.5l-0.667,12.333l12,1.333c0,0-5,7-6,20c0,0-4.666,17.666-11.333,20.333
+                                  c0,0-11.667,12.333-12,21l5,2l5.667,9.333l0.333,22.667l-5.333,0.333l-2,27c0,0-9.333,10.027-10,17.847s0,1.486,0,1.486
+                                  s-3.999,7.664-7.666,8.332C541.389,381.058,512.723,358.723,475.389,361.058z"/>
+                          </g>
+                          <g id="D4" class="svg-district">
+                            <path style="stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                  d="M615.721,141.726l-25.666-38.333l20.001,1.666l1.667-9.667l-6-7.667l13.333-4l15.667,2l4-4c0,0,10.999,9.333,15.666,2l7.667,1
+                                  c0,0,3.333,1.333,3.333-13l-26-4v3l-25.333-3l1.665-38.667c0,0,30.001,10.667,33.668,8c0,0,3.334,11.667,1.334,18.333
+                                  l16.333,1.333V42.06h35.333v15.332l-5.333,7.667l19,2.333v12.667l12,1.667l-7.667,8.333l13,2l-8.333,23l-7.333,0.667
+                                  l-1.334,18.333l4.334,1.333c0,0-8.668,37,7.666,45.333c0,0,4,3.334-23.333,1.667l-1.667,34.667h-18.333l-0.333,15.333h-17
+                                  l-4,5.667h5.666v26.333c0,0-8.667,8-12,14.667c0,0-4,6.333-21,18.667c0,0-1.333,25.667,12.667,35c0,0,4,15-14.333,20
+                                  c0,0,4.332,16.998-9.334,30.332l-12.392,15.888l-0.608,0.779v4.992h-4v-5.325c0,0-4.669,1.333-12.334-7l-12,20.666l-25.481-9.666
+                                  v1l-1.185-7l-16-16.334h-0.999l7.509-6.348c0,0,2.154-13.318,11.156-21.318l2-27l3.986-0.25l1.014-22.75l-5.667-9.333l-5-2
+                                  c0,0,3.331-13.999,12-21c0,0,10.908-7.714,11.455-21.69c0,0,2.876-17.975,5.878-18.643l-12-1.333l0.667-12.333
+                                  c0,0,9.332,0.333,3.667-15.5c0,0,5.72-8.29,0.527-14.562c0,0-4.849-13.297,1.19-14.055c0,0,12.946,1.452,14.948-10.549
+                                  c0,0,10.664-2.333,13-6.333C606.721,156.059,603.385,146.394,615.721,141.726z"/>
+                          </g>
+                          <g id="D3" class="svg-district">
+                            <path style="stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                  d="M471.055,448.392c0,0-26.999-8.334-45.999,28.666c0,0-11.001,33-66.334,40c0,0-29.333,3.334-42,17c0,0-43.333,11.999-77-9.334
+                                   l-10-1c0,0-2.667-11.999-13.667-14.666c0,0-32.666-40-37.333-42c0,0-24.667-22.333-46.333-18c0,0-51.667,0.667-61-38.333
+                                   c0,0-50.667-74.667-48-78.333c0,0,10.334-2.666,12.667-7.333c0,0,7.667-4,14.667,15c0,0,20,28,37,22c0,0-5,19.334,3.667,32.667
+                                   l13.333-7.333c0,0,7.667,13.334,4.667,19l-7.333,1.333c0,0,0.667,24.011,19,23.339l-0.667,4.661c0,0,62.334,10.667,80.667,29.667
+                                   c0,0,31,28.332,33,42.666l22,10.667l12.333-20.333c0,0,3.333,6,7.333,3l-0.333,13.666l24.333-3.333l0.333-5l15.667,0.333l0.333,5
+                                   c0,0,28-8.666,31.333-13.333l6,1.667l0.667-13.667l17.333,0.667v-49l-22.333-4l-4,13l-8.333,6.333l-0.667,6.667h-7.333v-9.334
+                                   l-4.333-0.333l0.333-5h5.333v-10.667l-33-1.666l-1-20.667l-9.667-11.667l-1-5l-9.667-0.333l-0.333-11.667h21.333l0.333,5h6.333
+                                   l0.333-25.666h3l-0.333-10.667l-12.333-1v-9.333l-19.667-0.667l0.333-10.333l-3-3.667v-8.333l-6-1.333l0.333-7.333h5.667l-1-5.333
+                                   l-10.667-4v-11.667l3.333-13.667h24.667v-4.667h13v-14l12.333-2.667c0,0,2.667-3.666,3-8.333l1-18.333h4l0.667-3.333h11.333
+                                   l0.333-5.667h11.333v2l16.333,2l10-1l1.333-17c0,0,21.667,34,33,41c0,0,15.667,4,21.667-6.333c0,0,12.999-17.667,30.666,2.667
+                                   l22.743,20.667c0,0-18.076,9.667-19.076,42.333c0,0,8.999,26.667,11.333,34s0.334,1.667,0.334,1.667s2,13,2,20l-0.682,18.121
+                                   c0,0-10.004,17.039-4.661,33.959c0,0-0.325,20.254-1.991,25.92s0,1.333,0,1.333S473.055,441.726,471.055,448.392z"/>
+                          </g>
+                          <g id="D2" class="svg-district">
+                            <path style="stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                  d="M669.389,264.392v24.5l43,4.5l18.5-7.5v7.5h15.5v-25.5c0,0,22.5-21,22.5-34.5v-8.5h-3.5l0.5-13.333l-9,5.833l-0.5-12.334
+                                  l-9.5-8.166l-0.5-12c0,0-21.672,1.43-26.836-17.535h39.836l2-21.965l37.5,2.5l6.5-18.5h16h14.5v16.5c0,0-0.5,6,26,6v13.5l-11,0.5
+                                  l0.5,6l-8,0.5v7.5l18.5,1v7l5,5c0,0,0.5,8.5-7.5,10l-38.5-4.5v-5.5l-11.5-0.5l-0.5-3l-12.5,9h-4.5v6.666h-11v11.834
+                                  c0,0,11.5,7.5,16,7.5l16,2.5l0.5-15.333l19,4.833l0.5-5h24v9.666c0,0,24.5,4.834,37,3.334v-3.334h8.835v11.001h4.333v4.667l8,1
+                                  l5.667,4v30l16.333,3v6.333l-27.333,1.333l-7.334,0.667v6.667c0,0-32.667-6-53-5l-2.666,50.667l15.666,1.667
+                                  c0,0-3.666,22.667,10.334,29l-0.667,10.333c0,0-11.334,0-8.667,28c0,0-7,6.333-5.333,18c0,0-24,10.001-30,29.667l10.667,8.332
+                                  c0,0-13,14.666-13,22l20,8.667l11.333-4l12.334-23.333l-5.667-3.667l-1.667-10l-6-5l2.667-4.667l-6.333-7.666
+                                  c0,0,5.333-11.333,7.333,1l7.333,3.666v3.334c0,0,18,1,16.667-10.667l16.333,2l5.667,8.333l18.333,7l-2,9.667l15,0.333l-4.333,51
+                                  h6v14.667h-8.667l12.334,25h-15.667v-13c0,0-23.334-13.001-27.667,2.333l-9,0.667l-1.333-6.667c0,0-16-11.666-21,2.667
+                                  c0,0,11.001-26.333-13.333-5.333l7-17l-16-10.667l-11,14.667c0,0-15.001-13.668-11.334-0.334c0,0,2.667,9.667-0.333,12.667
+                                  l2.333,3.667l-2.333,5.666c0,0,17.666,14.001,23.333,31.334c0,0-21.001,37.666-50.334,47.666c0,0-6.666,8.333-21.333-15
+                                  c0,0-10.333-62.333-5-69.333c0,0-6-14.667-0.667-22.667c0,0-9-10.999-1-32.333c0,0-3.001-52.668-42.334-84.334
+                                  c0,0-37.668-42.667-95.334,10c0,0-10.334-0.333,0-13.333l-4.666-6.334c0,0,13.418-12.998,9.334-30.332c0,0,18.25-6.167,14.333-20
+                                  c0,0-13.417-5.667-12.667-35c0,0,17.256-13.057,20.05-17.412C656.438,280.313,666.639,265.142,669.389,264.392z"/>
+                          </g>
+                          <g id="D1" class="svg-district">
+                            <path style="stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                  d="M471.055,448.392v-5.667l-3-3.667c0,0,3.666-23,1.5-28c0,0-5.166-15.667,5.834-33v-17c0,0,39-1.334,66,20c0,0,13.334,12.333,16,15
+                                  s0,1.334,0,1.334l1.185,6c0,0,21.147,5.332,25.481,9.666l12-20.666l8,7.333l4.334-0.333v5.325h4v-4.992l13-16.667l4.666,6.334
+                                  c0,0-11,14.666,0,12.333c0,0-27.334,36-30,38c0,0-16.332,20.333-41.332,25.333c0,0-6.001,0.333-7.334,4c0,0-8-0.332-9.333,2.334
+                                  c0,0-17,6.334-30-3C512.056,468.392,480.721,446.392,471.055,448.392z"/>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </section>
+
+                <section id="all-charts">
+                  <div id="container">
+                    <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2">
+                        <div class="col-lg-8 col-lg-offset-2 text-center" id="global-charts">
+                            <!-- charts populate here -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <div id="container">
+                    <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Citizen Complaint Records (2009-2014)</h2>
+                        <table class="table" id="complaint-records">
+                           <tr>
+                            <th>Neighborhood</th>
+                            <th>District</th>
+                            <th>Description</th>
+                            <th>Complainant Sex</th>
+                            <th>Complainant Race</th>
+                            <th>Office Sex</th>
+                            <th>Officer Race</th>
+                          </tr>
+                          <!-- all records -->
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+    
+
+  <script src='js/jquery-2.2.4.js'></script>
+  <script src='js/bootstrap.min.js'></script>
+  <!-- <script src='js/jquery-ui.min.js'></script> -->
+  <script src='js/Chart.min.js'></script>
+  <script src='js/index.js'></script>
+  <script src='js/nav-toggle.js'></script>
+
+  </body>
+</html>

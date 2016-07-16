@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700)
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic)
+
+$green: #68C3A3
+$blue: #52B3D9
+$red: #E08283
+$yellow: #F5D76E
+$purple: #BE90D4
+$highlight: #D35400
+
+*
+  box-sizing: border-box
+
+body
+  font-family: 'Lato', sans-serif
+
+section
+  padding: 10px 0
+
+#cincy-header
+  padding: 10px
+  color: #181818
+  border: 2px solid $red
+  text-align: center
+  h1
+    color: #E08283
+  hr
+    width: 50px
+
+#complaint-records
+  tr:hover
+    background-color: $red
+    color: #fff
+  tr:first-child:hover
+    background-color: #fff
+
+#global-charts
+  div
+    display: inline-block
+    margin: 0px 10px
+    margin-top: 25px
+    p
+      padding-top: 10px
+
+.num-box
+  color: $red
+  margin: 25px
+
+.entry
+  margin: 10px
+  padding: 10px
+
+#overview
+  margin: 0
+  display: flex
+
+  & p
+    margin-top: 10px
+    padding: 20px
+
+/* Chart */
+
+#race-chart
+  padding: 10px
+
+.Black
+  background-color: #00a4d9
+  fill: #00a4d9
+
+.Unknown
+  background-color: #ffaa01
+  fill: #ffaa01
+
+.White
+  background-color: #fe6b01
+  fill: #fe6b01
+
+/* District Map */
+
+#D1, #D2, #D3, #D4, #D5
+  stroke: #fff
+  stroke-width: 4
+  &:hover
+    fill: $highlight
+    opacity: .3
+
+#D1
+  fill: $yellow
+#D2
+  fill: $blue
+#D3
+  fill: $red
+#D4
+  fill: $purple
+#D5
+  fill: $green
