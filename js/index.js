@@ -167,14 +167,11 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   generateChart('district', 'bar');
   generateChart('neighborhood', 'horizontalBar');
 
-<<<<<<< Updated upstream
   // Console log global variables
   console.log(aggregateComplaintRecords);
   console.log(allComplaintRecords);
-=======
   console.log(aggregateCrimeData);
 
->>>>>>> Stashed changes
 });
 
 
@@ -182,7 +179,6 @@ $('.svg-district').click(function(){
   var district = this.id.slice(-1);
   // Clear Table
   $('#complaint-records').html('')
-<<<<<<< Updated upstream
   // Populate table with district records
   for (var i=0; i < allComplaintRecords.length; i++) {
     var record = allComplaintRecords[i];
@@ -191,7 +187,6 @@ $('.svg-district').click(function(){
     }
   }
 });
-=======
+
   console.log(aggregateCrimeData.district.1);
 })
->>>>>>> Stashed changes
