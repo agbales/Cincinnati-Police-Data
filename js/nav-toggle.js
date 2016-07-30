@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
-      isClosed = false;
+      isClosed = true;
 
     trigger.click(function () {
       hamburger_cross();      
@@ -9,18 +9,18 @@ $(document).ready(function () {
 
     function hamburger_cross() {
 
-      if (isClosed == true) {  
+      if (isClosed == false) {  
         // Hide opaque layer...        
         // overlay.hide();
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
-        isClosed = false;
+        isClosed = true;
       } else {   
         // Make opaque layer...
         // overlay.show();
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
-        isClosed = true;
+        isClosed = false;
       }
   }
   

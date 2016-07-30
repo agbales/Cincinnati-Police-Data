@@ -71,12 +71,12 @@ var colorPicker = function(num) {
   }
 }
 
-function generateChart(property, type) {
+function generateChart(property, type, data) {
   var propertiesToChart = [];
   propertiesToChart.push(property);
   for (var propertyIndex in propertiesToChart) {
     var property = propertiesToChart[propertyIndex];
-    showChart(chartBuilder(aggregateComplaintRecords[property]), property, type);
+    showChart(chartBuilder(data[property]), property, type);
   }
 }
 
@@ -100,11 +100,13 @@ function chartBuilder(chartData) {
 }
 
 function showChart(data, p, t) {
+  var id = p + parseInt(Math.random() * 1000);
+
   if (t == 'doughnut') {
     // Create canvas for each new chart
-    $('#global-charts').append('<div><canvas id="' + p + '" width="150px" height="150px"></canvas>'
+    $('#global-charts').append('<div><canvas id="' + id + '" width="150px" height="150px"></canvas>'
                               + '<br><p>' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
-    var ctx = $('#' + p).get(0).getContext('2d');
+    var ctx = $('#' + id).get(0).getContext('2d');
     new Chart(ctx).Doughnut(data, {
       animateScale: false,
       animateRotate : true,
@@ -134,9 +136,9 @@ function showChart(data, p, t) {
       }]
     }
 
-    $('#global-charts').append('<hr><canvas id="' + p + '" width="700px" height="400px"></canvas>' +
+    $('#global-charts').append('<hr><canvas id="' + id + '" width="700px" height="400px"></canvas>' +
                                '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
-    var ctx = $('#' + p).get(0).getContext('2d');
+    var ctx = $('#' + id).get(0).getContext('2d');
     new Chart(ctx).Bar(barData, {
       tooltipTemplate: "<%if (label){%>Distric <%=label%>: <%}%><%= value %> complaints"
     });
@@ -159,22 +161,27 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // Overview
   showGlobalTotals();
-  generateChart('complainant_sex', 'doughnut');
-  generateChart('complainant_race', 'doughnut');
-  generateChart('officer_race', 'doughnut');
+  generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords);
+  generateChart('complainant_race', 'doughnut', aggregateComplaintRecords);
+  generateChart('officer_race', 'doughnut', aggregateComplaintRecords);
+
+  // District Charts
+  for (var distIndex in aggregateComplaintRecords.districts) {
+    generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex])
+    generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex]);
+    generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex]);
+  }
 
   // Bar charts
-  generateChart('district', 'bar');
-  generateChart('neighborhood', 'horizontalBar');
+  generateChart('district', 'bar', aggregateComplaintRecords);
+  generateChart('neighborhood', 'horizontalBar', aggregateComplaintRecords);
 
   // Console log global variables
   console.log(aggregateComplaintRecords);
   console.log(allComplaintRecords);
 });
 
-
-$('.svg-district').click(function(){
-  var district = this.id.slice(-1);
+function populateTable(district) {
   // Clear Table
   $('#complaint-records').html('')
   // Populate table with district records
@@ -184,4 +191,14 @@ $('.svg-district').click(function(){
       addTableRow(record);
     }
   }
+}
+
+$('.svg-district').click(function(){
+  var district = this.id.slice(-1);
+  populateTable(district);
+});
+
+$('ul.sidebar-nav li a').click(function(){
+  var district = $(this).text().slice(-1);
+  populateTable(district);
 });
