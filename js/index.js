@@ -71,12 +71,12 @@ var colorPicker = function(num) {
   }
 }
 
-function generateChart(property, type, data) {
+function generateChart(property, type, data, appendId) {
   var propertiesToChart = [];
   propertiesToChart.push(property);
   for (var propertyIndex in propertiesToChart) {
     var property = propertiesToChart[propertyIndex];
-    showChart(chartBuilder(data[property]), property, type);
+    showChart(chartBuilder(data[property]), property, type, appendId);
   }
 }
 
@@ -99,12 +99,12 @@ function chartBuilder(chartData) {
   return data;
 }
 
-function showChart(data, p, t) {
+function showChart(data, p, t, a) {
   var id = p + parseInt(Math.random() * 1000);
 
   if (t == 'doughnut') {
     // Create canvas for each new chart
-    $('#global-charts').append('<div><canvas id="' + id + '" width="150px" height="150px"></canvas>'
+    $('#' + a).append('<div><canvas id="' + id + '" width="150px" height="150px"></canvas>'
                               + '<br><p>' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + id).get(0).getContext('2d');
     new Chart(ctx).Doughnut(data, {
@@ -136,7 +136,7 @@ function showChart(data, p, t) {
       }]
     }
 
-    $('#global-charts').append('<hr><canvas id="' + id + '" width="700px" height="400px"></canvas>' +
+    $('#' + a).append('<hr><canvas id="' + id + '" width="700px" height="400px"></canvas>' +
                                '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + id).get(0).getContext('2d');
     new Chart(ctx).Bar(barData, {
@@ -161,15 +161,15 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // Overview
   showGlobalTotals();
-  generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords);
-  generateChart('complainant_race', 'doughnut', aggregateComplaintRecords);
-  generateChart('officer_race', 'doughnut', aggregateComplaintRecords);
+  generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords, 'global-charts');
+  generateChart('complainant_race', 'doughnut', aggregateComplaintRecords, 'global-charts');
+  generateChart('officer_race', 'doughnut', aggregateComplaintRecords, 'global-charts');
 
   // District Charts
   for (var distIndex in aggregateComplaintRecords.districts) {
-    generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex])
-    generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex]);
-    generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex]);
+    generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts')
+    generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex],'district-charts');
+    generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts');
   }
 
   // Bar charts
