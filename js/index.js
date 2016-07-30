@@ -72,12 +72,7 @@ var colorPicker = function(num) {
 }
 
 function generateChart(property, type, data, appendId) {
-  var propertiesToChart = [];
-  propertiesToChart.push(property);
-  for (var propertyIndex in propertiesToChart) {
-    var property = propertiesToChart[propertyIndex];
-    showChart(chartBuilder(data[property]), property, type, appendId);
-  }
+  showChart(chartBuilder(data[property]), property, type, appendId);
 }
 
 function chartBuilder(chartData) {
