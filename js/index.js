@@ -131,12 +131,14 @@ function showChart(data, p, t, a) {
       }]
     }
 
-    $('#' + a).append('<hr><canvas id="' + id + '" width="700px" height="400px"></canvas>' +
-                               '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
-    var ctx = $('#' + id).get(0).getContext('2d');
-    new Chart(ctx).Bar(barData, {
-      tooltipTemplate: "<%if (label){%>Distric <%=label%>: <%}%><%= value %> complaints"
-    });
+    if (a !== undefined) {
+      $('#' + a).append('<hr><canvas id="' + id + '" width="700px" height="400px"></canvas>' +
+                        '<br><p>By ' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
+      var ctx = $('#' + id).get(0).getContext('2d');
+      new Chart(ctx).Bar(barData, {
+        tooltipTemplate: "<%if (label){%>Distric <%=label%>: <%}%><%= value %> complaints"
+      });
+    }
   }
 }
 
@@ -146,7 +148,7 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   allComplaintRecords = json;
 
   // Main loop that constructs the necessary data for each record in the json response.
-  for (i=0; i < json.length; i++) {
+  for (var i=0; i < json.length; i++) {
     var record = json[i]
     addTableRow(record);
     initializeDistrict(record);
@@ -171,6 +173,12 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   generateChart('district', 'bar', aggregateComplaintRecords);
   generateChart('neighborhood', 'horizontalBar', aggregateComplaintRecords);
 
+  // Neighborhood Nav List
+  for (neighborhood in aggregateComplaintRecords.neighborhoods) {
+    console.log(neighborhood);
+    $('#neighborhood-list').append('<li><a href="#">' + neighborhood + '</a></li>');
+  }
+
   // Console log global variables
   console.log(aggregateComplaintRecords);
   console.log(allComplaintRecords);
@@ -193,7 +201,7 @@ $('.svg-district').click(function(){
   populateTable(district);
 });
 
-$('ul.sidebar-nav li a').click(function(){
+$('ul.sidebar-nav li.district a').click(function(){
   var district = $(this).text().slice(-1);
   populateTable(district);
 });
