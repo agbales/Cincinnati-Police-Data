@@ -170,12 +170,11 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   }
 
   // Bar charts
-  generateChart('district', 'bar', aggregateComplaintRecords);
-  generateChart('neighborhood', 'horizontalBar', aggregateComplaintRecords);
+  generateChart('district', 'bar', aggregateComplaintRecords, 'district-charts');
+  generateChart('neighborhood', 'horizontalBar', aggregateComplaintRecords, 'district-charts');
 
   // Neighborhood Nav List
   for (neighborhood in aggregateComplaintRecords.neighborhoods) {
-    console.log(neighborhood);
     $('#neighborhood-list').append('<li><a href="#">' + neighborhood + '</a></li>');
   }
 
