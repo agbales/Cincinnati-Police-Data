@@ -95,7 +95,11 @@ function chartBuilder(chartData) {
 }
 
 function showChart(data, p, t, a) {
+  if (p == undefined) {
+    p = 'unkown';
+  }
   var id = p + parseInt(Math.random() * 1000);
+  console.log(id);
 
   if (t == 'doughnut') {
     // Create canvas for each new chart
@@ -164,9 +168,10 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // District Charts
   for (var distIndex in aggregateComplaintRecords.districts) {
-    generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts')
-    generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex],'district-charts');
-    generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts');
+    console.log(distIndex);
+    generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex)
+    generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex],'district-charts' + distIndex);
+    generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex);
   }
 
   // Bar charts

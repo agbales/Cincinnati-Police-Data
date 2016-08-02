@@ -209,7 +209,7 @@ section {
 }
 
 .sidebar-nav li {
-  position: relative; 
+  position: relative;
   line-height: 20px;
   display: inline-block;
   width: 100%;
@@ -235,28 +235,28 @@ section {
   background-color: #1a1a1a;
 }
 .sidebar-nav li:nth-child(2):before {
-  background-color: #1a1a1a;   
+  background-color: #1a1a1a;
 }
 .sidebar-nav li:nth-child(3):before {
-  background-color: #E08283;   
+  background-color: #E08283;
 }
 .sidebar-nav li:nth-child(4):before {
-  background-color: #3DA4AB;   
+  background-color: #3DA4AB;
 }
 .sidebar-nav li:nth-child(5):before {
-  background-color: #F0A703;   
+  background-color: #F0A703;
 }
 .sidebar-nav li:nth-child(6):before {
-  background-color: #977BAB;   
+  background-color: #977BAB;
 }
 .sidebar-nav li:nth-child(7):before {
-  background-color: #68C3A3;   
+  background-color: #68C3A3;
 }
 .sidebar-nav li:nth-child(8):before {
-  background-color: #f5f5f5;   
+  background-color: #f5f5f5;
 }
 .sidebar-nav li:nth-child(9):before {
-  background-color: #35acdf;   
+  background-color: #35acdf;
 }
 .sidebar-nav li:hover:before,
 .sidebar-nav li.open:hover:before {
@@ -272,7 +272,7 @@ section {
   display: block;
   color: #ddd;
   text-decoration: none;
-  padding: 10px 15px 10px 30px;    
+  padding: 10px 15px 10px 30px;
 }
 
 .sidebar-nav li a:hover,
@@ -308,7 +308,7 @@ section {
 
 .hamburger {
   position: fixed;
-  top: 20px;  
+  top: 20px;
   z-index: 999;
   display: block;
   width: 32px;
@@ -357,8 +357,8 @@ section {
 .hamburger.is-closed .hamb-bottom {
   background-color: #1a1a1a;
 }
-.hamburger.is-closed .hamb-top { 
-  top: 5px; 
+.hamburger.is-closed .hamb-top {
+  top: 5px;
   -webkit-transition: all .15s ease-in-out;
 }
 .hamburger.is-closed .hamb-middle {
@@ -366,7 +366,7 @@ section {
   margin-top: -2px;
 }
 .hamburger.is-closed .hamb-bottom {
-  bottom: 5px;  
+  bottom: 5px;
   -webkit-transition: all .15s ease-in-out;
 }
 
@@ -386,9 +386,9 @@ section {
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
   top: 50%;
-  margin-top: -2px;  
+  margin-top: -2px;
 }
-.hamburger.is-open .hamb-top { 
+.hamburger.is-open .hamb-top {
   -webkit-transform: rotate(45deg);
   -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
 }
