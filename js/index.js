@@ -99,12 +99,11 @@ function showChart(data, p, t, a) {
     p = 'unkown';
   }
   var id = p + parseInt(Math.random() * 1000);
-  console.log(id);
 
   if (t == 'doughnut') {
     // Create canvas for each new chart
     $('#' + a).append('<div><canvas id="' + id + '" width="150px" height="150px"></canvas>'
-                              + '<br><p>' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
+                      + '<br><p>' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + id).get(0).getContext('2d');
     new Chart(ctx).Doughnut(data, {
       animateScale: false,
@@ -168,7 +167,6 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // District Charts
   for (var distIndex in aggregateComplaintRecords.districts) {
-    console.log(distIndex);
     generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex)
     generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex],'district-charts' + distIndex);
     generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex);
@@ -180,6 +178,7 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // Neighborhood Nav List
   for (neighborhood in aggregateComplaintRecords.neighborhoods) {
+    console.log(neighborhood);
     $('#neighborhood-list').append('<li><a href="#">' + neighborhood + '</a></li>');
   }
 
