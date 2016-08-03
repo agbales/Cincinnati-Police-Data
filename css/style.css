@@ -132,6 +132,13 @@ section {
   fill: #68C3A3;
 }
 
+.district-overview-box {
+  margin: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(26, 26, 26, 0.2);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(26, 26, 26, 0.2);
+  box-shadow: 10px 10px 51px 0px rgba(26, 26, 26, 0.2);
+}
+
 /*------------------------------- */
 /*           Wrappers */
 /*------------------------------- */
