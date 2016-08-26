@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Cincinnati Data: Citizen Complaints </title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div class="overlay"></div>
+      <!-- Sidebar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+          <div class="nav-header">
+            <h3>
+              <a href="index.html">Cincinnati<br> 
+                Police<br>  
+                Data<br>  
+              </a> 
+            </h3>
+          </div>
+          <ul class="nav sidebar-nav">
+              <li>
+                <a href="about.html">About</a>
+              </li>
+              <li>
+                <a href="#">Overivew of Statistics</a>
+              </li>
+              <li>
+                  <a href="#">District 1</a>
+              </li>
+              <li>
+                  <a href="#">District 2</a>
+              </li>
+              <li>
+                  <a href="#">District 3</a>
+              </li>
+              <li>
+                  <a href="#">District 4</a>
+              </li>
+              <li>
+                  <a href="#">District 5</a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Neighborhoods<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header"></li>
+                  <li><a href="#">Example Neighborhood</a></li>
+                  <!-- JS populated list -->
+                </ul>
+              </li>
+          </ul>
+      </nav>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+        <div class="container">
+        <div class="container-fluid">
+            <section id="stat-totals">
+              <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="row">
+                      <div id="cincy-header" class="col-sm-4 col-sm-offset-2">
+                        <h1>CINCINNATI</h1>
+                        <h4>Citizen Complaints</h4>
+                      </div>
+                      <div class="col-sm-6 text-left">
+                        <h3>About</h3>
+                        <p>This project combines data from the [Cincinnati Open Data Portal](https://data.cincinnati-oh.gov/) to provide insights into Cincinnati police calls, responses, arrests, and complaints.</p>
+
+                        <p>Right now, you'll find preliminary work with the [Citizen Complaints](https://data.cincinnati-oh.gov/Safer-Streets/Citizen-Complaints/r3vg-n6p3) record. [Chart.js](http://www.chartjs.org/) is used visualize ratios of genders and races. This information is available for both complainants and officers. With this start, we can begin to compare data from various districts and even neighborhoods.</p>
+
+                        <p>Moving forward, I plan to incorporate open data sets to provide a context for these distributions. For instance, knowing the overall number of police calls a particular district or neighborhood allows for a more accurate portrait of complaint ratios.</p>
+
+                        <h4>## Contribute</h4>
+                        <p>Current issues are updated in this repository. Feel free to look at those, pick a new area to work, or send me comments and suggestions. I'd love to hear from you!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="all-charts">
+                <div id="container">
+                  <div class="row">
+                    
+                </div>
+              </section>
+          </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+    
+
+  <script src='js/jquery-2.2.4.js'></script>
+  <script src='js/bootstrap.min.js'></script>
+  <!-- <script src='js/jquery-ui.min.js'></script> -->
+  <script src='js/Chart.min.js'></script>
+  <script src='js/index.js'></script>
+  <script src='js/nav-toggle.js'></script>
+
+  </body>
+</html>
