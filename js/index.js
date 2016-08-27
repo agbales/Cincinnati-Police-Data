@@ -197,6 +197,11 @@ function populateTable(district) {
       addTableRow(record);
     }
   }
+  // Scroll to updated records
+  $('html, body').animate({
+	    scrollTop: ($('#complaint-records').offset().top - 80)
+	}, 500);
+
 }
 
 $('.svg-district').click(function(){
