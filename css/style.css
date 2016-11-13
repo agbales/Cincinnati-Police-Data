@@ -224,6 +224,10 @@ section {
   width: 220px;
 }
 
+#wrapper.toggled .hamburger {
+  margin-left: 135px;
+}
+
 #page-content-wrapper {
   width: 100%;
   padding-top: 30px;
@@ -351,7 +355,7 @@ section {
   display: block;
   width: 32px;
   height: 32px;
-  margin-left: 135px;
+  margin-left: 15px;
   background: transparent;
   border: none;
 }
