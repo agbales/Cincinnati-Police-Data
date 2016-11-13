@@ -212,10 +212,6 @@ function populateTable(district) {
   $('html, body').animate({
 	    scrollTop: ($('#complaint-records').offset().top - 80)
 	}, 500);
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 }
 
 $('.svg-district').click(function(){
