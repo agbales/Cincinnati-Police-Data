@@ -112,7 +112,7 @@ function showChart(data, p, t, a) {
 
   if (t == 'doughnut') {
     // Create canvas for each new chart
-    $('#' + a).append('<div><canvas id="' + id + '" width="150px" height="150px"></canvas>'
+    $('#' + a).append('<div class="d-chart"><canvas id="' + id + '" width="150px" height="150px"></canvas>'
                       + '<br><p>' + p.charAt(0).toUpperCase() + p.slice(1) + '</p></div>');
     var ctx = $('#' + id).get(0).getContext('2d');
     new Chart(ctx).Doughnut(data, {
