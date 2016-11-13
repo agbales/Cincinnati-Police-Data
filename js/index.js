@@ -48,26 +48,36 @@ function showGlobalTotals() {
   $('#na-complaints').html('Unknown: ' + aggregateComplaintRecords.complainant_race.Unknown );
 }
 
-var colorPicker = function(num) {
-  var comboOne =  {
-      color: "#E08283",
-      highlight: "#EC6A5C"
-  }
-  var comboTwo = {
-      color: "#3E4348",
-      highlight: "#6E7783"
-  }
-  var comboThree = {
-      color: "#6AAFE6",
-      highlight: "#E3E36A"
-  }
+var colorPicker = function(num, prop) {
+  colorCombo = [{ combo: 0, prop: "Male", color: "#59ABE3", highlight: "#DADFE1"},
+                { combo: 1, prop: "Female", color: "#FC868C", highlight: "#FC868C"},
+                { combo: 2, prop: "Unknown", color: "#A990A0", highlight: "#EEE1CC"},
+                { combo: 3, prop: "Black", color: "#3E4348", highlight: "#6E7783"},
+                { combo: 4, prop: "White", color: "#CBC9CF", highlight: "#f5f5f5"},
+                { combo: 5, prop: "Hispanic", color: "#A36E57", highlight: "#D68845"},
+                { combo: 6, prop: "Asian", color: "#FBE17D", highlight: "#EEE1CC"},
+                { combo: 7, prop: "Other", color: "#A990A0", highlight: "#EEE1CC"},
+                { combo: 8, prop: "Undefined", color: "#A990A0", highlight: "#EEE1CC"}
+               ];
 
-  if (num % 2) {
-    return comboTwo
-  } else if (num % 3) {
-    return comboThree
+  if (prop == "Male") {
+    return colorCombo[0];
+  } else if (prop == "Female") {
+    return colorCombo[1];
+  } else if (prop == "Unknown") {
+    return colorCombo[2];
+  } else if (prop == "Black") {
+    return colorCombo[3];
+  } else if (prop == "White") {
+    return colorCombo[4];
+  } else if (prop == "Hispanic") {
+    return colorCombo[5];
+  } else if (prop == "Asian") {
+    return colorCombo[6];
+  } else if (prop == "Other") {
+    return colorCombo[7];
   } else {
-    return comboOne
+    return colorCombo[8]
   }
 }
 
@@ -85,7 +95,7 @@ function chartBuilder(chartData) {
     data.push(
       {
         value: chartValue,
-        color: colorPicker(propertyIndex).color,
+        color: colorPicker(propertyIndex, chartProperty).color,
         highlight: colorPicker(propertyIndex).highlight,
         label: chartProperty
       }
@@ -163,12 +173,14 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   showGlobalTotals();
   generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords, 'global-charts');
   generateChart('complainant_race', 'doughnut', aggregateComplaintRecords, 'global-charts');
+  generateChart('officer_sex', 'doughnut', aggregateComplaintRecords, 'global-charts');
   generateChart('officer_race', 'doughnut', aggregateComplaintRecords, 'global-charts');
 
   // District Charts
   for (var distIndex in aggregateComplaintRecords.districts) {
     generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex)
     generateChart('complainant_race', 'doughnut', aggregateComplaintRecords.districts[distIndex],'district-charts' + distIndex);
+    generateChart('officer_sex', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex);
     generateChart('officer_race', 'doughnut', aggregateComplaintRecords.districts[distIndex], 'district-charts' + distIndex);
   }
 
@@ -178,13 +190,12 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // Neighborhood Nav List
   for (neighborhood in aggregateComplaintRecords.neighborhoods) {
-    console.log(neighborhood);
     $('#neighborhood-list').append('<li><a href="#">' + neighborhood + '</a></li>');
   }
 
   // Console log global variables
-  console.log(aggregateComplaintRecords);
-  console.log(allComplaintRecords);
+  // console.log(aggregateComplaintRecords);
+  // console.log(allComplaintRecords);
 });
 
 function populateTable(district) {
@@ -201,7 +212,10 @@ function populateTable(district) {
   $('html, body').animate({
 	    scrollTop: ($('#complaint-records').offset().top - 80)
 	}, 500);
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 }
 
 $('.svg-district').click(function(){
