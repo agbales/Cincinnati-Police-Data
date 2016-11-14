@@ -48,8 +48,7 @@ section
 
 #global-charts div
   display: inline-block
-  margin: 0px 10px
-  margin-top: 25px
+  margin: 25px 0px 55px 0px
   p
     padding-top: 10px
 
@@ -74,9 +73,46 @@ section
 /*           Chart
 /*-------------------------------
 
+$asian: #FBE17D
+$black: #3E4348
+$female: #FC868C
+$hispanic: #A36E57
+$male: #59ABE3
+$other: #A990A0
+$undefined: #A990A0
+$unknown: #A990A0
+$white: #CBC9CF
+
+.color-bar
+  border-top: 8px solid #fff
+  border-bottom: 8px solid #fff
+
+.asian
+  background-color: #FBE17D
+.black
+  background-color: #3E4348
+.female
+  background-color: #FC868C
+.hispanic
+  background-color: #A36E57
+.male
+  background-color: #59ABE3
+.other
+  background-color: #A990A0
+.undefined
+  background-color: #A990A0
+.unknown
+  background-color: #A990A0
+.white
+  background-color: #CBC9CF
+
 .Black
   background-color: #00a4d9
   fill: #00a4d9
+
+.d-chart
+  display: inline-block
+  margin: 0 15px
 
 .Unknown
   background-color: #ffaa01
@@ -113,13 +149,13 @@ section
   fill: $green
 
 .district-overview-box
-  border-bottom: 10px solid #181818
+  margin: 10px 0px
   -webkit-box-shadow: 0px 0px 5px 0px rgba(26,26,26,0.2)
   -moz-box-shadow: 0px 0px 5px 0px rgba(26,26,26,0.2)
   box-shadow: 10px 10px 51px 0px rgba(26,26,26,0.2)
 
 #district-overview-container
-  border: 10px solid #181818
+  margin-top: 50px
 
 /*-------------------------------
 /*           Wrappers
@@ -153,13 +189,16 @@ section
 #wrapper.toggled #sidebar-wrapper
   width: 220px
 
+#wrapper.toggled .hamburger
+  margin-left: 135px
+
 #page-content-wrapper
   width: 100%
   padding-top: 30px
 
 #wrapper.toggled #page-content-wrapper
   position: absolute
-  margin-right: -220px
+  margin-left: -100px
 
 /*-------------------------------
 /*     Sidebar nav styles
