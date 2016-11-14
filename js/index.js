@@ -200,7 +200,7 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
 function populateTable(district) {
   // Clear Table
-  $('#complaint-records').html('')
+  $('#complaint-records tbody').html('')
   // Populate table with district records
   for (var i=0; i < allComplaintRecords.length; i++) {
     var record = allComplaintRecords[i];
