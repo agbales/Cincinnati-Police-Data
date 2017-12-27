@@ -33,9 +33,9 @@ function initializeNeighborhood(record) {
 function tallyProperties(record) {
   for (var propertyIndex in (Object.keys(record))) {
     var property = Object.keys(record)[propertyIndex];
-    incrementCount(aggregateComplaintRecords, property, record[property]);
-    incrementCount(aggregateComplaintRecords.districts[record.district], property, record[property]);
-    incrementCount(aggregateComplaintRecords.neighborhoods[record.neighborhood], property, record[property]);
+    incrementCount(aggregateComplaintRecords, property, record[property]); // {data}, race, 'black'
+    incrementCount(aggregateComplaintRecords.districts[record.district], property, record[property]); // {data}, 1
+    incrementCount(aggregateComplaintRecords.neighborhoods[record.neighborhood], property, record[property]); // neighborhood, clifton
   }
 }
 
@@ -194,7 +194,7 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   }
 
   // Console log global variables
-  // console.log(aggregateComplaintRecords);
+  console.log(aggregateComplaintRecords);
   // console.log(allComplaintRecords);
 });
 
