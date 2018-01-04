@@ -92,14 +92,12 @@ function chartBuilder(chartData) {
     var chartProperty = Object.keys(chartData)[propertyIndex];
     var chartValue = chartData[chartProperty];
 
-    data.push(
-      {
-        value: chartValue,
-        color: colorPicker(propertyIndex, chartProperty).color,
-        highlight: colorPicker(propertyIndex).highlight,
-        label: chartProperty
-      }
-    )
+    data.push({
+      value: chartValue,
+      color: colorPicker(propertyIndex, chartProperty).color,
+      highlight: colorPicker(propertyIndex).highlight,
+      label: chartProperty
+    })
   }
   return data;
 }
@@ -109,6 +107,18 @@ function showChart(data, p, t, a) {
     p = 'unkown';
   }
   var id = p + parseInt(Math.random() * 1000);
+
+  // Get info from data
+  var labels = [];
+  var values = [];
+  var colors = [];
+  for (var i = 0; i < data.length; i++){
+    labels.push(data[i].label);
+    values.push(data[i].value);
+    colors.push(data[i].color)
+  }
+
+  console.log(labels, values, colors);
 
   if (t == 'doughnut') {
     // Create canvas for each new chart
@@ -122,19 +132,14 @@ function showChart(data, p, t, a) {
       percentageInnerCutout : 50,
       legendTemplate : "",
       customTooltips: true,
-      tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>"
+      tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
+      datasets: [{
+        fillColor: colors,
+        data: values
+      }]
     });
-  } else if (t == 'bar' || 'horizontalBar') {
 
-    // Still needs support for horizontalbar
-    var labels = [];
-    var values = [];
-    var colors = [];
-    for (var i = 0; i < data.length; i++){
-      labels.push(data[i].label);
-      values.push(data[i].value);
-      colors.push(data[i].color)
-    }
+  } else if (t == 'bar' || 'horizontalBar') {
 
     var barData = {
       labels: labels,
@@ -168,6 +173,8 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
     initializeNeighborhood(record);
     tallyProperties(record);
   }
+
+  console.log(aggregateComplaintRecords);
 
   // Overview
   showGlobalTotals();
