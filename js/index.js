@@ -8,16 +8,18 @@ function incrementCount(data, property, propertyValue) {
 }
 
 function addTableRow(record) {
+
   var tr;
       tr = $('<tr>')
-      .append( '<td>' + record.neighborhood + '</td>')
-      .append('<td>' + record.district + '</td>')
-      .append('<td>' + record.description + '</td></tr>')
-      .append( '<td>' + record.complainant_sex + '</td>')
-      .append('<td>' + record.complainant_race + '</td>')
-      .append('<td>' + record.officer_sex + '</td>')
-      .append('<td>' + record.officer_race + '</td>')
-      .append('</tr>')
+        .append( '<td>' + record.neighborhood + '</td>')
+        .append('<td>' + record.district + '</td>')
+        .append('<td>' + record.description + '</td></tr>')
+        .append( '<td>' + record.complainant_sex + '</td>')
+        .append('<td>' + record.complainant_race + '</td>')
+        .append('<td>' + record.officer_sex + '</td>')
+        .append('<td>' + record.officer_race + '</td>')
+        .append('<td>' + record.description + '</td>')
+        .append('</tr>')
 
       $('#complaint-records').append(tr);
 }
@@ -41,11 +43,11 @@ function tallyProperties(record) {
 
 function showGlobalTotals() {
   $('#total-complaints').html('Total: ' + aggregateComplaintRecords.totalRecords);
-  $('#black-complaints').html('Black: ' + aggregateComplaintRecords.complainant_race.Black);
-  $('#white-complaints').html('White: ' + aggregateComplaintRecords.complainant_race.White);
-  $('#hispanic-complaints').html('Hispanic: ' + aggregateComplaintRecords.complainant_race.Hispanic);
-  $('#other-complaints').html('Other: ' + aggregateComplaintRecords.complainant_race.Other );
-  $('#na-complaints').html('Unknown: ' + aggregateComplaintRecords.complainant_race.Unknown );
+  $('#black-complaints').html('Black: ' + aggregateComplaintRecords.complainant_race.BLACK);
+  $('#white-complaints').html('White: ' + aggregateComplaintRecords.complainant_race.WHITE);
+  $('#hispanic-complaints').html('Hispanic: ' + aggregateComplaintRecords.complainant_race.HISPANIC);
+  $('#other-complaints').html('Other: ' + aggregateComplaintRecords.complainant_race.OTHER );
+  $('#na-complaints').html('Unknown: ' + aggregateComplaintRecords.complainant_race.UNKNOWN );
 }
 
 var colorPicker = function(num, prop) {
@@ -158,6 +160,8 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
     tallyProperties(record);
   }
 
+  console.log(aggregateComplaintRecords);
+
   // Overview
   showGlobalTotals();
   generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords, 'global-charts');
@@ -183,7 +187,7 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
   }
 
   // Console log global variables
-  console.log(aggregateComplaintRecords);
+  // console.log(aggregateComplaintRecords);
   // console.log(allComplaintRecords);
 });
 
