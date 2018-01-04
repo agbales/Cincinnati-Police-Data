@@ -50,6 +50,13 @@ function showGlobalTotals() {
   $('#na-complaints').html('Unknown: ' + aggregateComplaintRecords.complainant_race.UNKNOWN );
 }
 
+function showComplaintTypeTotals() {
+  for (var total in (Object.keys(aggregateComplaintRecords.description))) {
+    var description = Object.keys(aggregateComplaintRecords.description)[total];
+    $('#complaint-types').append(description + " : " + total + "<br>");
+  }
+}
+
 var colorPicker = function(num, prop) {
   colorCombo = [{ combo: 0, prop: "Male", color: "#59ABE3", highlight: "#DADFE1"},
                 { combo: 1, prop: "Female", color: "#FC868C", highlight: "#FC868C"},
@@ -164,6 +171,7 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
 
   // Overview
   showGlobalTotals();
+  showComplaintTypeTotals();
   generateChart('complainant_sex', 'doughnut', aggregateComplaintRecords, 'global-charts');
   generateChart('complainant_race', 'doughnut', aggregateComplaintRecords, 'global-charts');
   generateChart('officer_sex', 'doughnut', aggregateComplaintRecords, 'global-charts');
