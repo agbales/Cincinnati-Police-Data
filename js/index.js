@@ -60,21 +60,21 @@ var colorPicker = function(num, prop) {
                 { combo: 8, prop: "Undefined", color: "#A990A0", highlight: "#EEE1CC"}
                ];
 
-  if (prop == "Male") {
+  if (prop == "MALE") {
     return colorCombo[0];
-  } else if (prop == "Female") {
+  } else if (prop == "FEMALE") {
     return colorCombo[1];
-  } else if (prop == "Unknown") {
+  } else if (prop == "UNKNOWN") {
     return colorCombo[2];
-  } else if (prop == "Black") {
+  } else if (prop == "BLACK") {
     return colorCombo[3];
-  } else if (prop == "White") {
+  } else if (prop == "WHITE") {
     return colorCombo[4];
-  } else if (prop == "Hispanic") {
+  } else if (prop == "HISPANIC") {
     return colorCombo[5];
-  } else if (prop == "Asian") {
+  } else if (prop == "ASIAN") {
     return colorCombo[6];
-  } else if (prop == "Other") {
+  } else if (prop == "OTHER") {
     return colorCombo[7];
   } else {
     return colorCombo[8]
@@ -108,18 +108,6 @@ function showChart(data, p, t, a) {
   }
   var id = p + parseInt(Math.random() * 1000);
 
-  // Get info from data
-  var labels = [];
-  var values = [];
-  var colors = [];
-  for (var i = 0; i < data.length; i++){
-    labels.push(data[i].label);
-    values.push(data[i].value);
-    colors.push(data[i].color)
-  }
-
-  console.log(labels, values, colors);
-
   if (t == 'doughnut') {
     // Create canvas for each new chart
     $('#' + a).append('<div class="d-chart"><canvas id="' + id + '" width="150px" height="150px"></canvas>'
@@ -132,12 +120,8 @@ function showChart(data, p, t, a) {
       percentageInnerCutout : 50,
       legendTemplate : "",
       customTooltips: true,
-      tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
-      datasets: [{
-        fillColor: colors,
-        data: values
-      }]
-    });
+      tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>"
+    })
 
   } else if (t == 'bar' || 'horizontalBar') {
 
@@ -173,8 +157,6 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
     initializeNeighborhood(record);
     tallyProperties(record);
   }
-
-  console.log(aggregateComplaintRecords);
 
   // Overview
   showGlobalTotals();
