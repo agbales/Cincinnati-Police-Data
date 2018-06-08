@@ -167,8 +167,6 @@ $.getJSON("https://data.cincinnati-oh.gov/resource/5tnh-jksf.json", function (js
     tallyProperties(record);
   }
 
-  console.log(aggregateComplaintRecords);
-
   // Overview
   showGlobalTotals();
   showComplaintTypeTotals();
